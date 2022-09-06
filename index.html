@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <title>Read Text File</title>
+</head>
+  
+<body>
+    <input type="file" name="inputfile"
+            id="inputfile">
+    <br>
+   
+    <pre id="output"></pre>
+      
+    <script type="text/javascript">
+        document.getElementById('inputfile')
+            .addEventListener('change', function() {
+            console.log(this.files)  
+            var fr=new FileReader();
+            fr.onload=function(){
+              console.log(fr.result)
+                document.getElementById('output')
+                        .textContent=fr.result;
+            }
+              
+            fr.readAsArrayBuffer("./test.js");
+        })
+    </script>
+</body>
+  
+</html>
